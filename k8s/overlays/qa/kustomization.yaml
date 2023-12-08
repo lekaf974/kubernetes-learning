@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: qa
+
+resources:
+  - namespace.yaml
+  - ../../base/backend
+
+patches:
+  - patch: |-
+      - op: add
+        path: '/metadata/labels'
+        value: 
+          gateway-environment: non-production
+    target:
+      kind: Namespace
+  - patch: |-
+      - op: add
+        path: '/spec/parentRefs/0/namespace'
+        value: gateway-non-prod
+      - op: add
+        path: '/spec/hostnames'
+        value:
+          - "qa.example.com"
+    target:
+      kind: HTTPRoute
