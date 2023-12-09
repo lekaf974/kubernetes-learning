@@ -6,3 +6,38 @@ resources:
   - deployment.yaml
   - service.yaml
   - http-route.yaml
+
+
+patches:
+  - patch: |-
+      - op: add
+        path: '/metadata/labels'
+        value:
+          kubernetes.io/app: "" 
+          kubernetes.io/environment: ""
+    target:
+      kind: ServiceAccount
+  - patch: |-
+      - op: add
+        path: '/metadata/labels'
+        value:
+          kubernetes.io/app: "" 
+          kubernetes.io/environment: ""
+    target:
+      kind: Service
+  - patch: |-
+      - op: add
+        path: '/metadata/labels'
+        value:
+          kubernetes.io/app: "" 
+          kubernetes.io/environment: ""
+    target:
+      kind: Deployment
+  - patch: |-
+      - op: add
+        path: '/metadata/labels'
+        value:
+          kubernetes.io/app: "" 
+          kubernetes.io/environment: ""
+    target:
+      kind: HTTPRoute

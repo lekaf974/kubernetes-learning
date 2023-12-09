@@ -9,19 +9,12 @@ resources:
 
 
 patches:
-  - patch: |-
-      - op: add
-        path: '/metadata/labels/gateway-environment'
-        value: production
+  - path: common-labels-patch.yaml
+    target:
+      name: backend
+  - path: namespace-patch.yaml
     target:
       kind: Namespace
-  - patch: |-
-      - op: add
-        path: '/spec/parentRefs/0/namespace'
-        value: gateway-non-prod
-      - op: add
-        path: '/spec/hostnames'
-        value:
-          - "prod.example.com"
+  - path: http-route-patch.yaml
     target:
       kind: HTTPRoute

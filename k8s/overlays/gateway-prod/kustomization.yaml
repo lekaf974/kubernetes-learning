@@ -8,16 +8,9 @@ resources:
 - ../../base/gateway
 
 patches:
-- patch: |-
-    - op: add
-      path: '/spec/listeners/0/allowedRoutes/namespaces/selector/matchLabels/gateway-environment'
-      value: production
+- path: allowed-routes-patch.yaml
   target:
     kind: Gateway
-- patch: |-
-    - op: add
-      path: '/metadata/labels'
-      value: 
-        environment: production
+- path: namespace-patch.yaml
   target:
     kind: Namespace
