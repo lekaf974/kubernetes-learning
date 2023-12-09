@@ -1,0 +1,7 @@
+- op: add
+  path: '/spec/parentRefs/0/namespace'
+  value: gateway-non-prod
+- op: replace
+  path: '/spec/hostnames'
+  value:
+    - "qa.example.com"
