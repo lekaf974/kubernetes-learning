@@ -5,3 +5,10 @@
   path: '/spec/hostnames'
   value:
     - "dev.example.com"
+- op: add
+  path: '/spec/rules/0/matches/1'
+  value:
+    headers:
+      - name: environment
+        value: dev
+        type: Exact
