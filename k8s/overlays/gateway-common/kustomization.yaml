@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: gateway-common
+
+resources:
+- namespace.yaml
+- ../../base/gateway
+
+patches:
+- path: allowed-routes-patch.yaml
+  target:
+    kind: Gateway
+- path: namespace-patch.yaml
+  target:
+    kind: Namespace

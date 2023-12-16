@@ -1,0 +1,4 @@
+- op: add
+  path: '/spec/listeners/0/allowedRoutes/namespaces/selector/matchLabels'
+  value:
+    shared-gateway-access: "true"

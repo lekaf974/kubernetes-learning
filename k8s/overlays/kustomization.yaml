@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ../base/gateway-class
+  - ./gateway-common
   - ./gateway-non-prod
   - ./gateway-prod
   - ./dev
