@@ -1,6 +1,11 @@
 - op: add
   path: '/spec/parentRefs/0/namespace'
   value: gateway-non-prod
+- op: add
+  path: '/spec/parentRefs/1'        
+  value: 
+    name: envoy-gateway
+    namespace: gateway-common
 - op: replace
   path: '/spec/hostnames'
   value:
