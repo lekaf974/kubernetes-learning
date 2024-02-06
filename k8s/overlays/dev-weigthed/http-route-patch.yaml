@@ -1,0 +1,20 @@
+- op: add
+  path: '/spec/parentRefs/0/namespace'
+  value: gateway-non-prod
+- op: add
+  path: '/spec/parentRefs/1'        
+  value: 
+    name: envoy-gateway
+    namespace: gateway-common
+- op: replace
+  path: '/spec/hostnames'
+  value:
+    - "dev-weighted.example.com"
+    - "example.com"
+- op: add
+  path: '/spec/rules/0/matches/1'
+  value:
+    headers:
+      - name: environment
+        value: dev-weighted
+        type: Exact

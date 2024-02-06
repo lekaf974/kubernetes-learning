@@ -1,0 +1,5 @@
+- op: replace
+  path: '/metadata/labels'
+  value:
+    kubernetes.io/app: "backend-weighted" 
+    kubernetes.io/environment: "dev-weighted"
