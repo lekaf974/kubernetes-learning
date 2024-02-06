@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-1
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: backend-1
+        version: v1
+    spec:
+      serviceAccountName: backend-weighted
+      containers:
+        - image: gcr.io/k8s-staging-ingressconformance/echoserver:v20221109-7ee2f3e
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+            - containerPort: 3000
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-2
+  template:
+    metadata:
+      labels:
+        app: backend-2
+    spec:
+      serviceAccountName: backend-weighted
+      containers:
+        - image: gcr.io/k8s-staging-ingressconformance/echoserver:v20221109-7ee2f3e
+          imagePullPolicy: IfNotPresent
+          name: backend
+          ports:
+            - containerPort: 3000
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
