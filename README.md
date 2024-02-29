@@ -109,6 +109,9 @@ All pieces are now in place and we can start to experiment.
 | dev              | Service    | backend          |
 | dev              | Deployment | backend          |
 | dev              | HTTPRoute  | backend          |
+| dev              | Service    | backend-weigthed |
+| dev              | Deployment | backend-weigthed |
+| dev              | HTTPRoute  | backend-weigthed |
 | qa               | Service    | backend          |
 | qa               | Deployment | backend          |
 | qa               | HTTPRoute  | backend          |
