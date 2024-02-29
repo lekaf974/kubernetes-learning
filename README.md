@@ -2,9 +2,6 @@
 
 ## Who am I
 
-<!-- Presenting myself, I am Matthieu a 40's years old father of 2 beautiful girls and married with the best wife (Yes I am lucky!).
-I started to work in computer science for a while now (about 20 years) where I had several roles like analyst programer, database administrator, linux system administrator that make me moving to devops/platform engineering. This make me starting the journey using Kubernetes and all the ecosystem around it.   -->
-
 After using default ingress for years, I decided to test and document the new k8s Gateway API in this post.
 
 I will consider that you are already familiar with kubernetes and will not go with the basics.
