@@ -17,15 +17,15 @@ Official documentation: https://minikube.sigs.k8s.io/docs/
 Once you have install it install we can start a new profile by running
 
 ```bash
-minikube start -p test-gateway-api
+minikube start -p k8s-gateway-api
 ```
 
 Once the profile is started, you can validate it is up and running
 
 ```bash
 # using minikube
-$ minikube status -p test-gateway-api
-test-gateway-api
+$ minikube status -p k8s-gateway-api
+k8s-gateway-api
 type: Control Plane
 host: Running
 kubelet: Running
@@ -36,7 +36,7 @@ kubeconfig: Configured
 # using kubectl
 $ kubectl get nodes
 NAME               STATUS   ROLES           AGE    VERSION
-test-gateway-api   Ready    control-plane   105s   v1.28.3
+k8s-gateway-api   Ready    control-plane   105s   v1.28.3
 ```
 
 ### Gateway API CRD
