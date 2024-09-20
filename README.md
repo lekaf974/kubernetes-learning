@@ -2,9 +2,6 @@
 
 ## Who am I
 
-<!-- Presenting myself, I am Matthieu a 40's years old father of 2 beautiful girls and married with the best wife (Yes I am lucky!).
-I started to work in computer science for a while now (about 20 years) where I had several roles like analyst programer, database administrator, linux system administrator that make me moving to devops/platform engineering. This make me starting the journey using Kubernetes and all the ecosystem around it.   -->
-
 After using default ingress for years, I decided to test and document the new k8s Gateway API in this post.
 
 I will consider that you are already familiar with kubernetes and will not go with the basics.
@@ -20,15 +17,15 @@ Official documentation: https://minikube.sigs.k8s.io/docs/
 Once you have install it install we can start a new profile by running
 
 ```bash
-minikube start -p test-gateway-api
+minikube start -p k8s-gateway-api
 ```
 
 Once the profile is started, you can validate it is up and running
 
 ```bash
 # using minikube
-$ minikube status -p test-gateway-api
-test-gateway-api
+$ minikube status -p k8s-gateway-api
+k8s-gateway-api
 type: Control Plane
 host: Running
 kubelet: Running
@@ -39,7 +36,7 @@ kubeconfig: Configured
 # using kubectl
 $ kubectl get nodes
 NAME               STATUS   ROLES           AGE    VERSION
-test-gateway-api   Ready    control-plane   105s   v1.28.3
+k8s-gateway-api   Ready    control-plane   105s   v1.28.3
 ```
 
 ### Gateway API CRD
@@ -112,6 +109,9 @@ All pieces are now in place and we can start to experiment.
 | dev              | Service    | backend          |
 | dev              | Deployment | backend          |
 | dev              | HTTPRoute  | backend          |
+| dev              | Service    | backend-weigthed |
+| dev              | Deployment | backend-weigthed |
+| dev              | HTTPRoute  | backend-weigthed |
 | qa               | Service    | backend          |
 | qa               | Deployment | backend          |
 | qa               | HTTPRoute  | backend          |
